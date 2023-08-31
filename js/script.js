@@ -401,4 +401,121 @@ const calcTips = function () {
 };
 
 console.log(calcTips());
+
+
+const mukul = {
+  firstName: "Mukul",
+  lastName: "Nanda",
+  age: 30,
+  job: "Student",
+  friends: ["Arshdeep", "Rishabh", "Abhishek"],
+};
+
+console.log(
+  `${mukul.firstName} has ${mukul.friends.length} friends, and his best friend is called ${mukul.friends[0]}`
+);
+
+
+const myCountry = {
+  country: "India",
+  capital: "New Delhi",
+  language: "Hindi",
+  population: 2250,
+  neighbours: ["China", "Bhutan", "Nepal"],
+};
+
+console.log(
+  `${myCountry.country} has ${myCountry.popuplation} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital}`
+);
+
+myCountry.population = myCountry.population + 2;
+console.log(myCountry.population);
+
+myCountry["population"] = myCountry["population"] - 2;
+console.log(myCountry["population"]);
+
+
+const mukul = {
+  firstName: "Mukul",
+  lastName: "Nanda",
+  birthYear: 1993,
+  job: "Student",
+  friends: ["Arshdeep", "Rishabh", "Abhishek"],
+  hasDriversLicence: true,
+
+  // calcAge: function () {
+  //   return 2023 - this.birthYear;
+  // },
+
+  calcAge: function () {
+    this.age = 2023 - this.birthYear;
+    return this.age;
+  },
+
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()}-year old ${
+      this.job
+    }, and he has ${this.hasDriversLicence ? "a" : "no"} driver's license`;
+  },
+};
+
+console.log(mukul.calcAge());
+console.log(mukul.age);
+
+console.log(mukul.getSummary());
+
+const myCountry = {
+  country: "India",
+  capital: "New Delhi",
+  language: "Hindi",
+  population: 2250,
+  neighbours: ["China", "Bhutan", "Nepal"],
+  describe: function () {
+    return `${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours.length} neighbouring countries and a capital called ${this.capital}`;
+  },
+  isIsland: function () {
+    return this.neighbours.length === 0 ? false : true;
+  },
+};
+
+// console.log(myCountry.describe());
+
+console.log(myCountry.isIsland());
+
+
+const mark = {
+  firstName: "Mark",
+  lastName: "Miller",
+  mass: 78,
+  height: 1.69,
+  calcBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    this.bmi = parseFloat(this.bmi).toFixed(2);
+    return this.bmi;
+  },
+};
+
+const john = {
+  firstName: "John",
+  lastName: "Smith",
+  mass: 92,
+  height: 1.95,
+  calcBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    this.bmi = parseFloat(this.bmi).toFixed(2);
+    return this.bmi;
+  },
+};
+
+if (mark.calcBMI() > john.calcBMI()) {
+  console.log(
+    `${mark.firstName}'s BMI (${mark.bmi}) is higher than ${john.firstName}'s (${john.bmi})`
+  );
+} else if (mark.calcBMI() < john.calcBMI()) {
+  console.log(
+    `${john.firstName}'s BMI (${john.bmi}) is higher than ${mark.firstName}'s (${mark.bmi})`
+  );
+} else {
+  console.log("Mark and John has same BMI.");
+}
 */
