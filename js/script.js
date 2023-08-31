@@ -518,4 +518,58 @@ if (mark.calcBMI() > john.calcBMI()) {
 } else {
   console.log("Mark and John has same BMI.");
 }
+
+
+const delay = (delayInms) => {
+  return new Promise((resolve) => setTimeout(resolve, delayInms));
+};
+
+const wait = async () => {
+  await delay(1000);
+};
+
+const vote = async () => {
+  for (let num = 1; num <= 50; num++) {
+    await wait();
+    console.log(`Voter number ${num} is currently voting`);
+  }
+};
+
+vote();
 */
+const types = [];
+const mukulArray = [
+  "Mukul",
+  "Nanda",
+  2023 - 1993,
+  "Student",
+  ["Arshdeep", "Rishabh", "Jodha"],
+];
+
+for (let i = 0; i < mukulArray.length; i++) {
+  console.log(mukulArray[i]);
+
+  types.push(typeof mukulArray[i]);
+}
+
+console.log(types);
+
+const years = [1993, 2000, 1969, 2001, 2010];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+  ages.push(2023 - years[i]);
+}
+
+console.log(ages);
+
+// continue and break
+// Prints only string values
+// continue iterates through entire loop even when the condition is met
+for (let i = 0; i < mukulArray.length; i++) {
+  if (typeof mukulArray[i] !== "string") continue;
+
+  console.log(mukulArray[[i]]);
+}
+
+//break terminates the loop when condition is met
