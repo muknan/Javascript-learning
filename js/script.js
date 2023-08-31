@@ -1,7 +1,5 @@
-//////////////////////////////////////////////
-//------------------PART 1------------------//
-//////////////////////////////////////////////
-/*
+"use strict";
+
 const js = "amazing";
 const test = document.querySelector("h1");
 const firstName = "Mukul";
@@ -11,6 +9,12 @@ let popuplation = 400;
 let language;
 language = "hindi";
 const isIsland = false;
+
+//////////////////////////////////////////////
+//------------------PART 1------------------//
+//////////////////////////////////////////////
+/*
+
 
 
 const delay = (delayInms) => {
@@ -251,8 +255,150 @@ console.log(
       ? bill * 0.15
       : bill * 0.2)}, and the total value ${bill + tip}`
 );
-*/
 
 //////////////////////////////////////////////
 //------------------PART 2------------------//
 //////////////////////////////////////////////
+
+function describeCountry(country, population, capitalCity) {
+  return `${country} has ${population} million people and its capital is ${capitalCity}`;
+}
+
+let describeIndia = describeCountry("India", 400, "New Delhi");
+let describeUS = describeCountry("United States", 20, "Washington DC");
+let describeGermany = describeCountry("Germany", 10, "Frankfurt");
+
+console.log(describeIndia);
+console.log(describeUS);
+console.log(describeGermany);
+
+
+function calcAge(birthYear) {
+  let currentYear = new Date();
+  return currentYear.getFullYear() - birthYear;
+}
+
+console.log(calcAge(1993));
+
+
+const worldPopulation = 7900;
+
+function percentageOfWorld1(population) {
+  return parseFloat((population / worldPopulation) * 100).toFixed(1);
+}
+
+const percentageOfWorld2 = function (population) {
+  return parseFloat((population / worldPopulation) * 100).toFixed(1);
+};
+
+const percentageOfWorld3 = (popuplation) =>
+  parseFloat((popuplation / worldPopulation) * 100).toFixed(1);
+
+const ratioIndia = percentageOfWorld3(2250);
+const ratioChina = percentageOfWorld3(400);
+const ratioUSA = percentageOfWorld3(60);
+
+console.log(ratioIndia);
+console.log(ratioChina);
+console.log(ratioUSA);
+
+const describePopulation = function (country, population) {
+  const avgPopulation = percentageOfWorld1(population);
+  return `${country} has ${population} million people which is about ${avgPopulation}% of the world.`;
+};
+
+console.log(describePopulation("China", 1441));
+console.log(describePopulation("India", 2250));
+console.log(describePopulation("USA", 60));  
+
+function calcAverage() {
+  let args = new Array();
+  for (let i = 0; i < arguments.length; i++) {
+    args.push(arguments[i]);
+  }
+  const sum = args.reduce((a, b) => a + b);
+  const avgScore = sum / arguments.length;
+  return avgScore;
+}
+
+const checkWinner = function (avgDolphins, avgKoalas) {
+  avgDolphins = calcAverage(85, 54, 41);
+  avgKoalas = calcAverage(23, 34, 27);
+
+  if (avgDolphins >= avgKoalas * 2) {
+    console.log(`Dolphins Wins! (${avgDolphins} vs ${avgKoalas})`);
+  } else if (avgKoalas >= avgDolphins * 2) {
+    console.log(`Koalas Wins! (${avgKoalas} vs ${avgDolphins})`);
+  } else {
+    console.log("No team wins");
+  }
+};
+
+checkWinner();
+
+const worldPopulation = 7900;
+function percentageOfWorld1(population) {
+  return parseFloat((population / worldPopulation) * 100).toFixed(1);
+}
+
+const populations = [2250, 1441, 400];
+
+// populations.length === 4
+//   ? console.log("array has 4 elements")
+//   : console.log("array does not have 4 elements");
+
+const calcPercentage = function () {
+  if (populations.length === 4) {
+    let percentages = new Array();
+    for (let i = 0; i < populations.length; i++) {
+      percentages.push(percentageOfWorld1(populations[i]));
+    }
+    return percentages;
+  } else {
+    return "array does not have 4 elements";
+  }
+};
+
+console.log(calcPercentage());
+
+
+const neighbours = ["China", "Bhutan", "Nepal"];
+
+neighbours.push("Utopia");
+console.log(neighbours);
+
+neighbours.pop();
+console.log(neighbours);
+
+if (!neighbours.includes("Germany")) {
+  console.log("Probably not a central europian country 😀");
+}
+
+neighbours[neighbours.indexOf("Bhutan")] = "Republic of Bhutan";
+console.log(neighbours);
+
+
+const calcTip = function (bill) {
+  if (bill <= 300 && bill >= 50) {
+    return bill * 0.15;
+  } else {
+    return bill * 0.2;
+  }
+};
+
+console.log(calcTip(100));
+
+const bills = [125, 555, 44];
+
+const calcTips = function () {
+  const tips = new Array();
+  const total = new Array();
+  for (let i = 0; i < bills.length; i++) {
+    tips.push(calcTip(bills[i]));
+    total.push(bills[i] + calcTip(bills[i]));
+  }
+  return { tips, total };
+};
+
+console.log(calcTips());
+*/
