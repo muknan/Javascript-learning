@@ -606,7 +606,7 @@ for (let i = 1; i <= 3; i++) {
     console.log(`Excercise ${i} - part ${j}`);
   }
 }
-*/
+
 const listOfNeighbours = [
   ["Canada", "Mexico"],
   ["Spain"],
@@ -622,3 +622,78 @@ for (let i = 0; i < listOfNeighbours.length; i++) {
     }
   }
 }
+
+
+let diceRoll = Math.trunc(Math.random() * 6) + 1;
+console.log(`First roll: ${diceRoll}`);
+
+if (diceRoll === 6) {
+  console.log("Good job, you got a 6 on first roll!");
+} else {
+  while (diceRoll !== 6) {
+    console.log("Re-rolling dice...");
+    diceRoll = Math.trunc(Math.random() * 6) + 1;
+    if (diceRoll === 6) {
+      console.log("Good job, you got a 6!");
+    }
+  }
+}
+
+
+const worldPopulation = 7900;
+const populations = [2250, 1441, 400, 60];
+const percentages3 = [];
+
+function percentageOfWorld1(population) {
+  return parseFloat((population / worldPopulation) * 100).toFixed(1);
+}
+
+let i = 0;
+while (i < populations.length) {
+  percentages3.push(parseFloat(populations[i] / worldPopulation).toFixed(2));
+  i++;
+}
+console.log(percentages3);
+
+
+const bills = [];
+const tips = [];
+const total = [];
+
+for (let i = 0; i < 10; i++) {
+  bills.push(Math.trunc(Math.random() * 1000) + 1);
+}
+console.log(bills);
+
+const calcTip = function (bill) {
+  if (bill <= 300 && bill >= 50) {
+    return bill * 0.15;
+  } else {
+    return bill * 0.2;
+  }
+};
+
+for (let i = 0; i < bills.length; i++) {
+  total.push(bills[i] + calcTip(bills[i]));
+}
+
+console.log(total);
+
+
+const arr = [];
+for (let i = 0; i < 10; i++) {
+  arr.push(Math.trunc(Math.random() * 10) + 1);
+}
+console.log(arr);
+
+const calcAverage = function () {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
+  }
+  const avg = sum / arr.length;
+  return avg;
+};
+
+console.log(calcAverage());
+*/
