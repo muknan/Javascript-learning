@@ -536,7 +536,7 @@ const vote = async () => {
 };
 
 vote();
-*/
+
 const types = [];
 const mukulArray = [
   "Mukul",
@@ -573,3 +573,52 @@ for (let i = 0; i < mukulArray.length; i++) {
 }
 
 //break terminates the loop when condition is met
+
+const worldPopulation = 7900;
+const populations = [2250, 1441, 400, 60];
+const percentages2 = [];
+
+function percentageOfWorld1(population) {
+  return parseFloat((population / worldPopulation) * 100).toFixed(1);
+}
+
+for (let i = 0; i < populations.length; i++) {
+  percentages2.push(percentageOfWorld1(populations[i]));
+}
+console.log(percentages2);
+
+
+const mukul = [
+  "Mukul",
+  "Nanda",
+  2023 - 1993,
+  "Student",
+  ["Arshdeep", "Rishabh", "Jodha"],
+];
+
+for (let i = mukul.length - 1; i >= 0; i--) {
+  console.log(mukul[i]);
+}
+
+for (let i = 1; i <= 3; i++) {
+  console.log(`--------Start exercise ${i}`);
+  for (let j = 1; j <= 5; j++) {
+    console.log(`Excercise ${i} - part ${j}`);
+  }
+}
+*/
+const listOfNeighbours = [
+  ["Canada", "Mexico"],
+  ["Spain"],
+  ["Norway", "Sweden", "Russia"],
+];
+
+for (let i = 0; i < listOfNeighbours.length; i++) {
+  if (listOfNeighbours[i].length === 1) {
+    console.log(`${listOfNeighbours[i][0]} has no neighbours`);
+  } else {
+    for (let j = 0; j < listOfNeighbours[i].length; j++) {
+      console.log(`Neibours: ${listOfNeighbours[i][j]}`);
+    }
+  }
+}
