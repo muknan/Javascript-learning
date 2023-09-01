@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
-const js = "amazing";
-const test = document.querySelector("h1");
-const firstName = "Mukul";
-const country = "India";
-const continent = "Asia";
+const js = 'amazing';
+const test = document.querySelector('h1');
+const firstName = 'Mukul';
+const country = 'India';
+const continent = 'Asia';
 let popuplation = 400;
 let language;
-language = "hindi";
+language = 'hindi';
 const isIsland = false;
 
 //////////////////////////////////////////////
@@ -697,3 +697,47 @@ const calcAverage = function () {
 
 console.log(calcAverage());
 */
+
+const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
+const temp1 = [20, 1, -10];
+
+const calcAmplitude = function (arr) {
+  let highest = arr[0];
+  let lowest = arr[0];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] !== 'number') continue;
+
+    if (highest < arr[i]) {
+      highest = arr[i];
+    }
+
+    if (lowest > arr[i]) {
+      lowest = arr[i];
+    }
+  }
+  return highest - lowest;
+};
+
+const calcAmplitude1 = function (t1, t2) {
+  const arr = t1.concat(t2);
+
+  let highest = arr[0];
+  let lowest = arr[0];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] !== 'number') continue;
+
+    if (highest < arr[i]) {
+      highest = arr[i];
+    }
+
+    if (lowest > arr[i]) {
+      lowest = arr[i];
+    }
+  }
+  return highest - lowest;
+};
+
+const temp = calcAmplitude1(temperatures, temp1);
+console.log(temp);
