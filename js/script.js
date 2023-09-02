@@ -696,7 +696,7 @@ const calcAverage = function () {
 };
 
 console.log(calcAverage());
-*/
+
 
 const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
 const temp1 = [20, 1, -10];
@@ -741,3 +741,62 @@ const calcAmplitude1 = function (t1, t2) {
 
 const temp = calcAmplitude1(temperatures, temp1);
 console.log(temp);
+
+
+const convertKelvin = function () {
+  const temperature = {
+    type: 'temp',
+    unit: 'celsius',
+    value: Number(prompt('Degrees celsius:')),
+  };
+
+  console.table(temperature);
+  // console.warn(temperature);
+  // console.error(temperature);
+  // console.log(temperature);
+
+  const kelvin = temperature.value + 273;
+  return kelvin;
+};
+
+console.log(convertKelvin());
+
+
+const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
+const temp1 = [20, 1, -10];
+
+const calcAmplitudeBug = function (t1, t2) {
+  const arr = t1.concat(t2);
+
+  let highest = arr[0];
+  let lowest = arr[0];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] !== 'number') continue;
+
+    if (highest < arr[i]) {
+      highest = arr[i];
+    }
+
+    if (lowest > arr[i]) {
+      lowest = arr[i];
+    }
+  }
+  console.log(highest, lowest);
+  return highest - lowest;
+};
+
+const tempBug = calcAmplitudeBug([3, 5, 1], [9, 4, 5]);
+console.log(tempBug);
+
+
+const printForecast = function (arr) {
+  let forecast = '';
+  for (let i = 0; i < arr.length; i++) {
+    forecast = forecast + `... ${arr[i]}⁰ in ${i + 1} days `;
+  }
+  return forecast + '...';
+};
+
+console.log(printForecast([17, 21, 23]));
+*/
