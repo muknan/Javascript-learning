@@ -800,3 +800,52 @@ const printForecast = function (arr) {
 
 console.log(printForecast([17, 21, 23]));
 */
+
+// Hoisting //
+// Variables
+
+console.log(me);
+// console.log(job);
+// console.log(year);
+
+var me = 'Mukul';
+let job = 'Student';
+const year = 1993;
+
+// Functions
+
+console.log(addDecl(1, 2));
+// console.log(addExp(1, 2));
+// console.log(addArrow(1, 2));
+
+// Only function that can be used before declaration
+function addDecl(a, b) {
+  return a + b;
+}
+
+const addExp = function (a, b) {
+  return a + b;
+};
+
+var addArrow = (a, b) => a + b;
+
+// Example
+
+console.log(numProducts);
+
+if (!numProducts) {
+  deleteShoppingCart();
+}
+var numProducts = 10;
+
+function deleteShoppingCart() {
+  console.log('All products deleted');
+}
+
+var x = 1;
+let y = 2;
+const z = 3;
+
+console.log(x === window.x);
+console.log(y === window.y);
+console.log(z === window.z);
