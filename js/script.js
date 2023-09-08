@@ -900,7 +900,7 @@ console.log(gaurav.calcAge());
 const f = mukul.calcAge;
 console.log(f);
 f(); // "this" is undefined since there is no parent/handler to this f function
-*/
+
 
 // var firstName = 'Mukul'; //  would be created as a window object which would be accesible through "this" in arrow functions or functions with no parent
 
@@ -968,3 +968,43 @@ const addArrow = (a, b) => {
 
 // arguments does not exist for arrow functions
 console.log(addArrow(2, 5));
+
+
+//  Primitive types
+let lastName = 'Sahni';
+let oldLastName = lastName;
+
+lastName = 'Nanda';
+console.log(lastName);
+console.log(oldLastName);
+
+//  Reference types
+const meena = {
+  firstName: 'Meena',
+  lastName: 'Sahni',
+  age: 27,
+  isMarried: false,
+};
+
+const meeneAfterMarriage = meena;
+meeneAfterMarriage.lastName = 'Nanda';
+console.log('Before marriage: ', meena);
+console.log('After marriage: ', meeneAfterMarriage);
+
+//  Copying objects
+const meena2 = {
+  firstName: 'Meena',
+  lastName: 'Sahni',
+  age: 27,
+  isMarried: false,
+  family: ['Jugal', 'Bimla'],
+};
+
+const meenaCpy = Object.assign({}, meena2);
+meenaCpy.lastName = 'Nanda';
+meenaCpy.isMarried = true;
+meenaCpy.family.push('Parveen');
+meenaCpy.family.push('Gaurav');
+console.log('Before marriage: ', meena2);
+console.log('After marriage: ', meenaCpy);
+*/
