@@ -2,7 +2,7 @@
 
 const js = 'amazing';
 const test = document.querySelector('h1');
-const firstName = 'Mukul';
+// const firstName = 'Mukul';
 const country = 'India';
 const continent = 'Asia';
 let popuplation = 400;
@@ -849,7 +849,7 @@ const z = 3;
 console.log(x === window.x);
 console.log(y === window.y);
 console.log(z === window.z);
-*/
+
 
 // "this" keyword
 
@@ -900,3 +900,71 @@ console.log(gaurav.calcAge());
 const f = mukul.calcAge;
 console.log(f);
 f(); // "this" is undefined since there is no parent/handler to this f function
+*/
+
+// var firstName = 'Mukul'; //  would be created as a window object which would be accesible through "this" in arrow functions or functions with no parent
+
+const mukul = {
+  firstName: 'Mukul',
+  lastName: 'Nanda',
+  birthYear: 1993,
+
+  calcAge: function () {
+    console.log(this); //   returns the mukul object
+    this.currentYear = 2023; //   adds a new property to the object
+    // return this.currentYear - this.birthYear; //   mukul.birthYear = 1993
+
+    // Old solution
+    // const self = this;
+
+    // const isMillenial = function () {
+    //   console.log(self);
+
+    //   // this.birthYear >= 1981 && this.birthYear <= 1996
+    //   //   ? `${this.firstName}, you are a Millenial.`
+    //   //   : `${this.lastName}, you are not a Millenial.`;
+
+    //   const way =
+    //     self.birthYear >= 1981 && self.birthYear <= 1996
+    //       ? `${self.firstName}, you are a Millenial.`
+    //       : `${self.lastName}, you are not a Millenial.`;
+
+    //   return way;
+
+    // New solution
+    const isMillenial = () => {
+      console.log(this);
+
+      const way =
+        this.birthYear >= 1981 && this.birthYear <= 1996
+          ? `${this.firstName}, you are a Millenial.`
+          : `${this.lastName}, you are not a Millenial.`;
+
+      console.log(way);
+    };
+    isMillenial();
+  },
+
+  greet: () => `Hey there! ${this.firstName}`,
+};
+
+console.log(mukul.greet()); //  undefined
+
+mukul.calcAge();
+
+//  arguments keyword
+const addExp = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+
+console.log(addExp(2, 5));
+console.log(addExp(2, 5, 7, 9));
+
+const addArrow = (a, b) => {
+  console.log(arguments);
+  return a + b;
+};
+
+// arguments does not exist for arrow functions
+console.log(addArrow(2, 5));
