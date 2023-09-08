@@ -799,7 +799,7 @@ const printForecast = function (arr) {
 };
 
 console.log(printForecast([17, 21, 23]));
-*/
+
 
 // Hoisting //
 // Variables
@@ -849,3 +849,54 @@ const z = 3;
 console.log(x === window.x);
 console.log(y === window.y);
 console.log(z === window.z);
+*/
+
+// "this" keyword
+
+console.log(this);
+
+// "this" inside a regular function with strict mode
+function calcAge(birthYear) {
+  console.log(this); // undefined with strict mode, otherwise global object -> window
+  return 2023 - birthYear;
+}
+
+calcAge();
+
+const calcAgeArrow = birthYear => console.log(this); // "this" takes global object (window) coz of lexical scoping as arrows doesnt support this
+
+calcAgeArrow();
+
+const calcAgeExp = function (birthYear) {
+  console.log(this); //undefined, as it does not have any parent, "this" is pointing to function itself
+  return 2023 - birthYear;
+};
+
+calcAgeExp();
+
+const mukul = {
+  firstName: 'Mukul',
+  lastName: 'Nanda',
+  birthYear: 1993,
+  calcAge: function () {
+    console.log(this); //   returns the mukul object
+    this.currentYear = 2023; //   adds a new property to the object
+    return this.currentYear - this.birthYear; //   mukul.birthYear = 1993
+  },
+};
+
+console.log(mukul.calcAge());
+
+const gaurav = {
+  firstName: 'Gaurav',
+  lastName: 'Nanda',
+  birthYear: 1990,
+};
+
+gaurav.calcAge = mukul.calcAge; //  method borrowing, this would be pointing to gaurav
+
+console.log(gaurav.calcAge());
+
+const f = mukul.calcAge;
+console.log(f);
+f(); // "this" is undefined since there is no parent/handler to this f function
